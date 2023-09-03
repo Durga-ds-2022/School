@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.max.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+</head>
+  
+<body>
+<div class="container-fluid pt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <p class="section-title pr-5">
+            <span class="pr-2">Book a Seat</span>
+          </p>
+          <h1 class="mb-4">Book A Seat For Your Kid</h1>
+          <p>
+            Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
+            dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
+            Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+            dolor
+          </p>
+          <div class="row pt-2 pb-4">
+            <div class="col-6 col-md-4">
+              <img class="img-fluid rounded" src="{% static 'img/about-2.jpg' %}" alt="" />
+            </div>
+            <div class="col-6 col-md-8">
+              <ul class="list-inline m-0">
+                <li class="py-2 border-top border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
+                  dolor amet diam
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Etsea et sit
+                  dolor amet ipsum
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Diam dolor diam
+                  elitripsum vero.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="index.html" class="btn btn-primary mt-2 py-2 px-4">Home</a>
+
+        </div>
+        <div class="col-lg-5">
+          <div class="card border-bottom-0 $card-border-radius:2">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Book A Seat</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form method="post" id = "contactForm">
+                {% csrf_token %}
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
+                      placeholder="Your Name" name="student_name" required>
+                  </div>
+                </div>
+                  <div class="row">
+                    <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
+                        placeholder="Parent Name" name="parents_name" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control form-control-lg" id="colFormLabelLg"
+                        placeholder="Mobile Number" name="moblie" required>
+                    </div>
+                  </div>
+                    <div class="row">
+                      <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control form-control-lg" id="colFormLabelLg"
+                          placeholder="Your Email " name="email" required>
+                      </div>
+                    </div>
+                    <div>
+                      <br>
+                      <button class="btn btn-dark" type="submit">
+                        Book Now
+                      </button>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="{% static 'mail/contact.js' %}"></script>
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</html>
+   

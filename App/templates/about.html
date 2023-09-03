@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About-Us</title>
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+
+  <style>
+    .logo{
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a href="{% url 'home' %}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
+               <img src="{% static 'img/logo.jpeg' %}" alt="" srcset="" class="logo">      
+                             <span class="text-info">Divine</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'facilities' %}">Facilities</a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'testimonial' %}">Testimonial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'events' %}">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'careers' %}">Careers</a>
+              </li>
+            </ul>
+        </div>    
+          </div>
+        </div>
+      </nav>
+</div>
+   <!-- Header Start -->
+   <div class="container-fluid bg-info mb-5">
+    <div class="d-flex flex-column bg-info align-items-center justify-content-center" style="min-height: 75px">
+      <h3 class="text-white font-weight-bold" style="font-size: 40px;">About Us</h3>
+    </div>
+  </div>
+  <!-- Header End -->
+
+  <!-- About Start -->
+  <div class="container py-0">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="{% static 'img/banner_school.jpg' %}" class="img-fluid rounded" alt="About Image" />
+      </div>
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <h2 class="font-weight-bold">Welcome to Divine School</h2>
+        <p>
+          We are a renowned educational institution providing quality education to students for over 20 years. Our
+          mission is to empower the youth with knowledge and skills to succeed in the modern world.
+        </p>
+        <p>
+          At Divine School, we focus on holistic development, fostering a love for learning, and nurturing the
+          talents of every student. Our experienced faculty and state-of-the-art facilities create an environment
+          that promotes creativity, critical thinking, and personal growth.
+        </p>
+        <p>
+          We are a renowned educational institution providing quality education to students for over 20 years. Our
+          mission is to empower the youth with knowledge and skills to succeed in the modern world.
+        </p>
+        <p>
+          At Divine School, we focus on holistic development, fostering a love for learning, and nurturing the
+          talents of every student. Our experienced faculty and state-of-the-art facilities create an environment
+          that promotes creativity, critical thinking, and personal growth.
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container py-0">
+    <div class="row">
+      <div class="col-lg-12 mt-4 mt-lg-0">
+        <h2 class="font-weight-bold text-center">Our Vision & Mission</h2>
+        <h3> Vision</h3>
+        <p>
+The Divine Public School is committed to providing its students a stimulating environment to learn and grow, with the understanding of ‘Sanskars’. With discipline as the soul of this school, the Creative is focused on nurturing children to achieve their full potential and inculcating lifelong learning for cognitive development.
+        </p>
+                <h3> Mission</h3>
+<p>To have a holistic approach towards a child’s overall personality development is Creative’s prime mission.
+</p>
+<ul>
+  <li>
+    Child Centric Environment<br>
+    A child centric environment is crucial for young individuals to grow and fly high. With early literacy being a primary goal, the institution’s focus on child’s development and learning is unwavering.
+  </li>
+  <li>
+    Quality Education<br>
+    A child centric environment is crucial for young individuals to grow and fly high. With early literacy being a primary goal, the institution’s focus on child’s development and learning is unwavering.
+  </li>
+  <li>
+    Safe and protective environment<br>
+    A child centric environment is crucial for young individuals to grow and fly high. With early literacy being a primary goal, the institution’s focus on child’s development and learning is unwavering.
+  </li>
+  <li>
+    Safe and protective environment<br>
+    A child centric environment is crucial for young individuals to grow and fly high. With early literacy being a primary goal, the institution’s focus on child’s development and learning is unwavering.
+  </li>
+</ul>
+<p>As the leading school in terms of discipline, academics, extra curriculars, events and activities, all the programs are built to fit every student who walks through the doors of Divine Public School. Being a pioneer in the educational sector, students are provided with state of the art infrastructure to encourage learning in a holistic manner.
+</p>
+</div>
+    </div>
+  </div>
+  <div class="container pt-0">
+    <div class="row">
+      <h2 class="font-weight-bold text-center">Messages</h2>
+    <p>
+      <img src="http://placehold.it/100x200" width="300" height="300" alt="Image" style="float: left; margin-right: 10px;" /> Here is my content, I am writting more than I need to show how the paragraph looks when it takes more than one line. Wouldn't
+      it be nice if the text stayed together when an image was included. Here is some more text purely for testing nothing interesting to read here other than some typo's. Here is my content, I am writting more than I need to show how the paragraph looks when it takes more than one line. Wouldn't
+      it be nice if the text stayed together when an image was included. Here is some more text purely for testing nothing interesting to read here other than some typo's. Here is my content, I am writting more than I need to show how the paragraph looks when it takes more than one line. Wouldn't
+      it be nice if the text stayed together when an image was included. Here is some more text purely for testing nothing interesting to read here other than some typo's.
+    </p>
+  </div>
+</div>
+
+  <!-- About End -->
+
+  <!-- Facilities Start -->
+  <div class="container-fluid bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="facility-item text-center">
+            <i class="flaticon-002-smart"></i>
+            <h4 class="mt-3">Modern Infrastructure</h4>
+            <p>We provide a modern and well-equipped infrastructure to enhance the learning experience.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="facility-item text-center">
+            <i class="flaticon-018-portfolio"></i>
+            <h4 class="mt-3">Creative Arts</h4>
+            <p>Our arts program encourages creativity and self-expression through various art forms.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="facility-item text-center">
+            <i class="flaticon-011-building"></i>
+            <h4 class="mt-3">Spacious Playground</h4>
+            <p>We have a spacious playground for students to engage in physical activities and sports.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="facility-item text-center">
+            <i class="flaticon-048-music-player"></i>
+            <h4 class="mt-3">Music & Dance</h4>
+            <p>Students can explore their musical and dance talents through our dedicated programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Facilities End -->
+
+  <footer class="footer-distributed  p-5">
+
+    <div class="footer-left">
+        <h3>Divine<span> Public School</span></h3>
+        <br>
+        <p class="footer-company-about">
+            <span>About the company</span>
+            <strong>Sagar Developer</strong> is a Youtube channel where you can find more creative CSS Animations
+            and
+            Effects along with
+            HTML, JavaScript and Projects using C/C++.
+        </p>
+        <br>
+        <p class="footer-links link">
+            <a href="{% url 'home'}">Home</a>
+            |
+            <a href="{% url 'about'}">About</a>
+            |
+            <a href="{% url 'contact'}">Contact</a>
+            |
+            <a href="{% url 'gallery'}">Gallery</a>
+        </p>
+    </div>
+
+    <div class="footer-center">
+       
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Indore</span>
+                Madhya Pradesh</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 74**9**258</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:sagar00001.co@gmail.com">xyz@gmail.com</a></p>
+        </div>
+        
+    </div>
+    <div class="footer-right">
+            <h2 class="follow">Follow Us</h2>
+        <div class="wrapper">
+            <div class="icon facebook">
+               <div class="tooltip">
+                  Facebook
+               </div>
+               <span><i class="fab fa-facebook-f"></i></span>
+            </div>
+            <div class="icon twitter">
+               <div class="tooltip">
+                  Twitter
+               </div>
+               <span><i class="fab fa-twitter"></i></span>
+            </div>
+            <div class="icon instagram">
+               <div class="tooltip">
+                  Instagram
+               </div>
+               <span><i class="fab fa-instagram"></i></span>
+            </div>
+            <div class="icon google">
+               <div class="tooltip">Google</div>
+               <span><i class="fab fa-google"></i></span>
+            </div>
+
+         </div>
+         
+    </div>
+    <p class="footer-company-name">Copyright © 2021 <strong>Divine Public School</strong> All rights reserved</p>
+</footer>
+
+    </body>
+  </html>
+  
+
+    

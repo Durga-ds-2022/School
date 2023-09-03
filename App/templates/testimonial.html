@@ -1,0 +1,356 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.max.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+  <!-- Favicon -->
+  <link href="{% static 'img/logo.jpeg ' %}" rel="icon" />
+
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+
+  <!-- Flaticon Font -->
+  <link href="{% static 'lib/flaticon/font/flaticon.css ' %}" rel="stylesheet" />
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css ' %}" rel="stylesheet" />
+  <style>
+    .logo{
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a href="{% url 'home' %}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
+          <img src="{% static 'img/logo.jpeg' %}" alt="" srcset="" class="logo">
+          <span class="text-info">Divine</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-nav font-weight-bold mx-auto py-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'facilities' %}">Facilities</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'testimonial' %}">Testimonial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'events' %}">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'careers' %}">Careers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Header Start -->
+  <div class="container-fluid bg-info mb-5">
+    <div class="d-flex flex-column bg-info align-items-center justify-content-center" style="min-height: 75px">
+      <h3 class="text-white font-weight-bold" style="font-size: 40px;">Alumni</h3>
+    </div>
+  </div>
+  <!-- Header End -->
+  <!-- Alumni start -->
+  <div class="container-fluid py-5">
+    <div class="container p-0">
+      <div class="text-center pb-2">
+        <p class="section-title px-5">
+          <span class="px-2">Our Pride</span>
+        </p>
+        <h1 class="mb-4">Our Shining stars!</h1>
+      </div>
+      <div class="owl-carousel testimonial-carousel shadow-sm rounded mb-4 p-4 ">
+        {% for test in alumni %}
+        <div class="testimonial-item px-3">
+          <div class="bg-light shadow-sm rounded mb-4 p-4">
+            <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+            {{test.message}}
+          </div>
+          <div class="d-flex align-items-center">
+            <img class="rounded-circle" src="{{test.photo.url}}" style="width: 70px; height: 70px" alt="Image" />
+            <div class="pl-3">
+              <h5>Parent Name</h5>
+              <i>{{test.parent_name}}</i>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alumni End -->
+  <div class="container-fluid py-5">
+    <div class="container p-0">
+      <div class="text-center pb-2">
+        <p class="section-title px-5">
+          <span class="px-2">Testimonial</span>
+        </p>
+        <h1 class="mb-4">What Parents Say!</h1>
+      </div>
+      <div class="owl-carousel testimonial-carousel shadow-sm rounded mb-4 p-4 ">
+        {% for test in testimonials %}
+        <div class="testimonial-item px-3">
+          <div class="bg-light shadow-sm rounded mb-4 p-4">
+            <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+            {{test.message}}
+          </div>
+          <div class="d-flex align-items-center">
+            <img class="rounded-circle" src="{{test.photo.url}}" style="width: 70px; height: 70px" alt="Image" />
+            <div class="pl-3">
+              <h5>Parent Name</h5>
+              <i>{{test.parent_name}}</i>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <p class="section-title pr-5">
+            <span class="pr-2">Share your Message</span>
+          </p>
+          <p>
+            Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
+            dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
+            Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+            dolor
+          </p>
+          <div class="row pt-2 pb-4">
+            <div class="col-6 col-md-4">
+              <img class="img-fluid rounded" src="{% static 'img/about-2.jpg' %}" alt="" />
+            </div>
+            <div class="col-6 col-md-8">
+              <ul class="list-inline m-0">
+                <li class="py-2 border-top border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
+                  dolor amet diam
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Etsea et sit
+                  dolor amet ipsum
+                </li>
+                <li class="py-2 border-bottom">
+                  <i class="fa fa-check text-primary mr-3"></i>Diam dolor diam
+                  elitripsum vero.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="index.html" class="btn btn-primary mt-2 py-2 px-4">Home</a>
+
+        </div>
+        <div class="col-lg-6">
+          <div class="card border-bottom-0 $card-border-radius:2">
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form method="post" id="contactForm">
+                {% csrf_token %}
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
+                      placeholder="Parent Name" name="parent_name" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control form-control-lg" id="colFormLabelLg"
+                      placeholder="Your Email" name="email" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control form-control-lg" id="colFormLabelLg" placeholder="Your Message "
+                      name="message" required></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control form-control-lg" id="upload" name="upload"
+                      placeholder="Your Profile photo" name="photo" required>
+                  </div>
+                </div>
+                <br>
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-dark" type="submit">
+                      Submit
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <footer class="footer-distributed  p-5">
+
+    <div class="footer-left">
+      <h3>Divine<span> Public School</span></h3>
+      <br>
+      <p class="footer-company-about">
+        <span>About the company</span>
+        <strong>Sagar Developer</strong> is a Youtube channel where you can find more creative CSS Animations
+        and
+        Effects along with
+        HTML, JavaScript and Projects using C/C++.
+      </p>
+      <br>
+      <p class="footer-links link">
+        <a href="{% url 'home'}">Home</a>
+        |
+        <a href="{% url 'about'}">About</a>
+        |
+        <a href="{% url 'contact'}">Contact</a>
+        |
+        <a href="{% url 'gallery'}">Gallery</a>
+      </p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>Indore</span>
+          Madhya Pradesh</p>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+91 74**9**258</p>
+      </div>
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:sagar00001.co@gmail.com">xyz@gmail.com</a></p>
+      </div>
+
+    </div>
+    <div class="footer-right">
+      <h2 class="follow">Follow Us</h2>
+      <div class="wrapper">
+        <div class="icon facebook">
+          <div class="tooltip">
+            Facebook
+          </div>
+          <span><i class="fab fa-facebook-f"></i></span>
+        </div>
+        <div class="icon twitter">
+          <div class="tooltip">
+            Twitter
+          </div>
+          <span><i class="fab fa-twitter"></i></span>
+        </div>
+        <div class="icon instagram">
+          <div class="tooltip">
+            Instagram
+          </div>
+          <span><i class="fab fa-instagram"></i></span>
+        </div>
+        <div class="icon google">
+          <div class="tooltip">Google</div>
+          <span><i class="fab fa-google"></i></span>
+        </div>
+
+      </div>
+
+    </div>
+    <p class="footer-company-name">Copyright © 2021 <strong>Divine Public School</strong> All rights reserved</p>
+  </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="{% static 'lib/easing/easing.min.js'%}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js'%}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<!-- Contact Javascript File -->
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %} "></script>
+<script src="{% static 'mail/contact.js' %} "></script>
+<!-- Custom Script -->
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/script1.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $("#contactForm").submit(function (event) {
+      event.preventDefault();
+
+      var form = $(this);
+      var url = form.attr("action");
+      var formData = form.serialize();
+
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        success: function (response) {
+          // Handle success, e.g., show a success message
+          alert("Your message has been submitted successfully!");
+          form.trigger("reset");
+        },
+        error: function (xhr, errmsg, err) {
+          // Handle error, e.g., show an error message
+          alert("An error occurred. Please try again later.");
+        },
+      });
+    });
+  });
+</script>
+
+</html>

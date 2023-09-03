@@ -1,0 +1,226 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<style>
+  .logo{
+    width: 30px;
+    height: 30px;
+  }
+</style>
+</head>
+<body>
+  <div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a href="{% url 'home' %}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
+               <img src="{% static 'img/logo.jpeg' %}" alt="" srcset="" class="logo">      
+                             <span class="text-info">Divine</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'facilities' %}">Facilities</a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'testimonial' %}">Testimonial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'events' %}">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'careers' %}">Careers</a>
+              </li>
+            </ul>
+        </div>    
+          </div>
+        </div>
+      </nav>
+</div>
+   <!-- Header Start -->
+   <div class="container-fluid bg-info mb-5">
+    <div class="d-flex flex-column bg-info align-items-center justify-content-center" style="min-height: 75px">
+      <h3 class="text-white font-weight-bold" style="font-size: 40px;">Gallery</h3>
+    </div>
+  </div>
+  <!-- Header End -->
+  <div class="container-fluid pt-0">
+    <!-- Filter Buttons Section -->
+<div class="row align-items-center px-md-5 mb-5 mt-5" id="filter-buttons">
+  <div class="col-12">
+    <a href="{% url 'gallery' %}" class="btn mb-2 me-1 {% if not category_filter %}active{% endif %}" data-filter="all">Show all</a>
+    {% for category in categories %}
+    {% if category.category_name != 'banner' %}
+      <a href="{% url 'gallery' %}?category={{ category.category_name }}" class="btn mb-2 mx-1">{{ category.category_name }}</a>
+   {% endif %}
+      {% endfor %}
+  </div>
+</div>
+
+<!-- Filterable Images / Cards Section -->
+<!-- Filterable Images / Cards Section -->
+<div class="row align-items-center px-md-5 mb-5  mt-4 gap-3" id="filterable-cards">
+  {% for image in g_obj %}
+    <div class="card p-0" data-name="{{ image.category.category_name }}">
+      {% if image.photo %}
+        <img src="{{ image.photo.url }}" alt="Image" height="250px">
+      {% elif image.video %}
+        <video class="card-img-top mb-2" controls style=" height: 250px;">
+          <source src="{{ image.video.url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% endif %}
+      <div class="card-body">
+        <h6 class="card-title">{{ image.category.category_name }}</h6>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+<div class="col-md-12 mb-4">
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mb-0">
+      {% if g_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1{% if category_filter %}&category={{ category_filter }}{% endif %}" aria-label="First">
+            <span aria-hidden="true">&laquo;&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ g_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% endif %}
+      
+      <li class="page-item active">
+        <a class="page-link" href="#">{{ g_obj.number }}</a>
+      </li>
+      
+      {% if g_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ g_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ g_obj.paginator.num_pages }}{% if category_filter %}&category={{ category_filter }}{% endif %}" aria-label="Last">
+            <span aria-hidden="true">&raquo;&raquo;</span>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+
+  </div>
+<footer class="footer-distributed  p-5">
+
+    <div class="footer-left">
+        <h3>Divine<span> Public School</span></h3>
+        <br>
+        <p class="footer-company-about">
+            <span>About the company</span>
+            <strong>Sagar Developer</strong> is a Youtube channel where you can find more creative CSS Animations
+            and
+            Effects along with
+            HTML, JavaScript and Projects using C/C++.
+        </p>
+        <br>
+        <p class="footer-links link">
+            <a href="{% url 'home'}"> Home </a>
+            |
+            <a href="{% url 'about'}">About</a>
+            |
+            <a href="{% url 'contact'}">Contact</a>
+            |
+            <a href="{% url 'gallery'}">Gallery</a>
+        </p>
+    </div>
+
+    <div class="footer-center">
+       
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Indore</span>
+                Madhya Pradesh</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 74**9**258</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:sagar00001.co@gmail.com">xyz@gmail.com</a></p>
+        </div>
+        
+    </div>
+    <div class="footer-right">
+            <h2 class="follow">Follow Us</h2>
+        <div class="wrapper">
+            <div class="icon facebook">
+               <div class="tooltip">
+                  Facebook
+               </div>
+               <span><i class="fab fa-facebook-f"></i></span>
+            </div>
+            <div class="icon twitter">
+               <div class="tooltip">
+                  Twitter
+               </div>
+               <span><i class="fab fa-twitter"></i></span>
+            </div>
+            <div class="icon instagram">
+               <div class="tooltip">
+                  Instagram
+               </div>
+               <span><i class="fab fa-instagram"></i></span>
+            </div>
+            <div class="icon google">
+               <div class="tooltip">Google</div>
+               <span><i class="fab fa-google"></i></span>
+            </div>
+
+         </div>
+         
+    </div>
+    <p class="footer-company-name">Copyright © 2021 <strong>Divine Public School</strong> All rights reserved</p>
+</footer>
+<script src="{% static 'js/gallery.js' %}" defer></script>
+
+    </body>
+  </html>
+  

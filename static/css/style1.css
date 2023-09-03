@@ -1,0 +1,83 @@
+/* Your CSS styles here */
+.holder {
+  background-color: #ccc;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  font-family: Helvetica;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.holder ul {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+  position: relative;
+}
+
+.holder ul li a {
+  color: rgb(1, 65, 13);
+}
+
+.header-header {
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  text-align: center;
+  padding: 15px 0px;
+  position: absolute;
+  width: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.news-marquee {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.newsticker {
+  position: relative;
+  top: 0;
+  white-space: nowrap;
+}
+
+.tickercontainer {
+  height: 100%;
+}
+
+.sticky-container {
+  padding: 0px;
+  margin: 0px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: auto;
+  z-index: 1100;
+}
+
+.sticky li {
+  list-style-type: none;
+  padding: 2px;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.sticky li:hover {
+  margin-left: -50px;
+  color: #a3030b;
+}
+
+.sticky li a {
+  text-decoration: none;
+  color: #012c37;
+  background-color: rgb(239, 255, 237);
+}

@@ -1,0 +1,714 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Public School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+     <!-- Favicon -->
+     <link href="{% static 'img/favicon.icon' %}" rel="icon" />
+
+     <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <!-- Flaticon Font -->
+  <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet" />
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.max.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+
+     <style media="screen">
+      /* Custom styles for the modal */
+      .popup {
+        border-radius: 8px;
+        border: 8px solid #0084ff;
+        box-shadow: 0px 0px 30px 0px rgba(0, 132, 255, 1.00);
+        background-color: #ffffff;
+        width: 450px;
+        height: 180px;
+        padding: 30px 40px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        font-family: "Poppins", sans-serif;
+        display: none;
+        text-align: center;
+      }
+  
+      .popup .row {
+        justify-content: space-between;
+      }
+  
+      .popup h4 {
+        margin: 0;
+      }
+  
+      /* Optional: Style the "Enquiry NOW" button */
+      .custom-btn {
+        margin-top: 10px;
+        padding: 12px 24px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      .custom-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .logo {
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+ <!-- Navbar Start -->
+ <div class="container-fluid bg-light position-relative shadow">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a href="{% url 'home' %}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
+        <img src="{% static 'img/logo.jpeg' %}" alt="" srcset="" class="logo">
+        <span class="text-info">Divine</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav font-weight-bold mx-auto py-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'facilities' %}">Facilities</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'testimonial' %}">Testimonial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'events' %}">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'careers' %}">Careers</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Navbar End -->
+  <!-- Header Start -->
+  <div class="container-fluid px-0 px-md-5 mb-5">
+    <div class="row align-items-center px-3">
+      <div class="col-md-8 text-center text-lg-left">
+        <div class="slides slowFade">
+          {% for home in home_image %}
+          <div class="slide">
+            <img src="{{home.photo.url}}" alt="img" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!--new Header start -->
+      <div class="col-md-4 text-center text-lg-left">
+        <div class="holder">
+          <div class="holder-header bg-primary">
+            <div class=" text-center text-white" style="font-size:20px; font-family: Roboto"> 
+              <strong>Important Announcements</strong>
+            </div>
+          </div>
+          <div class="holder-body">
+            <div class="news-merquee">
+              <ul id="ticker01" class= " animated"style="text-align: left;">
+                {% for n in announcements %}
+                <li>
+                  <p><strong><span>10/10/2007</span><a href="#">{{n.news}}</a></strong></p>
+                </li>
+                {% endfor %}              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--new Header End -->
+    </div>
+  </div>
+  <!-- Header End -->
+<!-- Facilities Start -->
+<div class="container-fluid px-0 px-md-5 mb-5">
+  <div class="row align-items-center px-3">
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-lg-4"></i>
+        <div class="pl-4">
+          <h4>Play Ground</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
+        <div class="pl-4">
+          <h4>Music and Dance</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
+        <div class="pl-4">
+          <h4>Arts and Crafts</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>
+        <div class="pl-4">
+          <h4>Safe Transportation</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>
+        <div class="pl-4">
+          <h4>Healthy food</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 pb-1">
+      <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+        <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
+        <div class="pl-4">
+          <h4>Educational Tour</h4>
+          <p class="m-0">
+            Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
+            lorem amet elitr vero...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Facilities Start -->
+
+<!-- About Start -->
+<div class="container-fluid px-0 px-md-5 mb-5">
+  <div class="row align-items-center px-3">
+    <div class="row align-items-center">
+      <div class="col-lg-4">
+        <img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'img/about-1.jpg' %}" alt="" />
+      </div>
+      <div class="col-lg-7">
+        <p class="section-title pr-5">
+          <span class="pr-2">Learn About Us</span>
+        </p>
+        <h1 class="mb-4">Best School For Your Kids</h1>
+        <p>
+          Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
+          dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
+          Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+          dolor
+        </p>
+        <div class="row pt-2 pb-4">
+          <div class="col-6 col-md-4">
+            <img class="img-fluid rounded" src="{% static 'img/about-2.jpg' %}" alt="" />
+          </div>
+          <div class="col-6 col-md-8">
+            <ul class="list-inline m-0">
+              <li class="py-2 border-top border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
+                dolor amet diam
+              </li>
+              <li class="py-2 border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Etsea et sit
+                dolor amet ipsum
+              </li>
+              <li class="py-2 border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Diam dolor diam
+                elitripsum vero.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a href="{% url 'about' %}" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+<!-- event Start -->
+<div class="container-fluid px-0 px-md-5 mb-5">
+  <div class="row align-items-center px-3">
+    <div class="text-center pb-2">
+      <p class="section-title px-5">
+        <span class="px-2">Events</span>
+      </p>
+      <h1 class="mb-4">Latest Events</h1>
+    </div>
+    <div class="row pb-3">
+      {% for event in home_event %}
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm mb-2">
+          <img class="card-img-top mb-2" src="media/{{event.photo}}" alt="" />
+          <div class="card-body bg-light text-center p-4">
+            <h4 class="">{{event.event_name}}</h4>
+            <p>
+              {{event.description}}
+            </p>
+            <a href="{% url 'event_details' %}" class="btn btn-info px-4 mx-auto my-2">Read More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- event End -->
+<!-- Registration Start -->
+<div class="container-fluid pt-0">
+  <div class="row align-items-center px-md-5 mb-5"">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <p class="section-title pr-5">
+          <span class="pr-2">Book a Seat</span>
+        </p>
+        <h1 class="mb-4">Book A Seat For Your Kid</h1>
+        <p>
+          Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
+          dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
+          Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+          dolor
+        </p>
+        <div class="row pt-2 pb-4">
+          <div class="col-6 col-md-4">
+            <img class="img-fluid rounded" src="{% static 'img/about-2.jpg' %}" alt="" />
+          </div>
+          <div class="col-6 col-md-8">
+            <ul class="list-inline m-0">
+              <li class="py-2 border-top border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
+                dolor amet diam
+              </li>
+              <li class="py-2 border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Etsea et sit
+                dolor amet ipsum
+              </li>
+              <li class="py-2 border-bottom">
+                <i class="fa fa-check text-primary mr-3"></i>Diam dolor diam
+                elitripsum vero.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a href="{% url 'about' %}" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
+      </div>
+      <div class="col-lg-5">
+        <div class="card border-bottom-0 $card-border-radius:2">
+          <div class="card-header bg-secondary text-center p-4">
+            <h1 class="text-white m-0">Book A Seat</h1>
+          </div>
+          <div class="card-body rounded-bottom bg-primary p-5">
+            <form method="post">
+              {% csrf_token %}
+              <div class="row">
+                <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Your Name"
+                    name="student_name" required>
+                </div>
+              </div>
+              <div class="row">
+                <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="colFormLabelLg"
+                    placeholder="Parent Name" name="parents_name" required>
+                </div>
+              </div>
+              <div class="row">
+                <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control form-control-lg" id="colFormLabelLg"
+                    placeholder="Mobile Number" name="moblie" required>
+                </div>
+              </div>
+              <div class="row">
+                <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"></label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control form-control-lg" id="colFormLabelLg"
+                    placeholder="Your Email " name="email" required>
+                </div>
+              </div>
+              <div>
+                <br>
+                <button class="btn btn-dark" type="submit">
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Registration End -->
+
+<!-- Class Start -->
+<div class="container-fluid px-md-5 mb-5">
+  <div class="row align-items-center px-3">
+    <div class="text-center pb-2">
+      <p class="section-title px-5">
+        <span class="px-2">Popular Classes</span>
+      </p>
+      <h1 class="mb-4">Classes for Your Kids</h1>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2" src="{% static 'img/class-1.jpg' %}" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">Drawing Class</h4>
+            <p class="card-text">
+              Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
+              ipsum duo et no et, ipsum ipsum erat duo amet clita duo
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2" src="{% static 'img/class-2.jpg' %}" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">Language Learning</h4>
+            <p class="card-text">
+              Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
+              ipsum duo et no et, ipsum ipsum erat duo amet clita duo
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-5">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2" src="{% static 'img/class-3.jpg' %}" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">Basic Science</h4>
+            <p class="card-text">
+              Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
+              ipsum duo et no et, ipsum ipsum erat duo amet clita duo
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Class End -->
+<!-- Testimonial End -->
+<div class="container-fluid py-0 px-md-5">
+  <div class="row align-items-center px-3">
+    <div class="text-center pb-2">
+      <p class="section-title px-5">
+        <span class="px-2">Testimonial</span>
+      </p>
+      <h1 class="mb-4">What Parents Say!</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel shadow-sm rounded mb-4 p-4">
+      {% for test in testimonial %}
+      <div class="testimonial-item px-3">
+        <div class="bg-light shadow-sm rounded mb-4 p-4">
+          <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+          {{test.message}}
+          {{test.message}}
+
+        </div>
+        <div class="d-flex align-items-center">
+          <img class="rounded-circle" src="{{test.photo.url}}" style="width: 70px; height: 70px" alt="Image" />
+          <div class="pl-3">
+            <h5>Parent Name</h5>
+            <i>{{test.parent_name}}</i>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Alumni start -->
+<div class="container-fluid py-0">
+  <div class="container p-0">
+    <div class="text-center pb-2">
+      <p class="section-title px-5">
+        <span class="px-2">Our Pride</span>
+      </p>
+      <h1 class="mb-4">Our Shining stars!</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel shadow-sm rounded mb-4 p-4 ">
+      {% for test in alumni %}
+      <div class="testimonial-item px-3">
+        <div class="bg-light shadow-sm rounded mb-4 p-4">
+          <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+          {{test.message}}
+        </div>
+        <div class="d-flex align-items-center">
+          <img class="rounded-circle" src="{{test.photo.url}}" style="width: 70px; height: 70px" alt="Image" />
+          <div class="pl-3">
+            <h5>Parent Name</h5>
+            <i>{{test.parent_name}}</i>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Alumni End -->
+    
+      <!-- Footer Start -->
+            <footer class="footer-distributed">
+
+              <div class="footer-left">
+                  <h3>Divine<span> Public School</span></h3>
+                  <br>
+                  <p class="footer-company-about">
+                      <span>About the company</span>
+                      <strong>Divine Public School</strong> is a Hub of creative mind  where you can train your mind towords creativity
+                      and skill .
+                  </p>
+                  <br>
+                  <p class="footer-links link">
+                      <a href="#">Home</a>
+                      |
+                      <a href="#">About</a>
+                      |
+                      <a href="#">Contact</a>
+                      |
+                      <a href="#">Blog</a>
+                  </p>
+              </div>
+      
+              <div class="footer-center">
+                 
+                  <div>
+                      <i class="fa fa-map-marker"></i>
+                      <p><span>Indore</span>
+                          Madhya Pradesh</p>
+                  </div>
+      
+                  <div>
+                      <i class="fa fa-phone"></i>
+                      <p>+91 74**9**258</p>
+                  </div>
+                  <div>
+                      <i class="fa fa-envelope"></i>
+                      <p><a href="mailto:sagar00001.co@gmail.com">xyz@gmail.com</a></p>
+                  </div>
+                  
+              </div>
+              <div class="footer-right">
+                      <h2 class="follow">Follow Us</h2>
+                  <div class="wrapper">
+                      <div class="icon facebook">
+                         <div class="tooltip">
+                            Facebook
+                         </div>
+                         <span><i class="fab fa-facebook-f"></i></span>
+                      </div>
+                      <div class="icon twitter">
+                         <div class="tooltip">
+                            Twitter
+                         </div>
+                         <span><i class="fab fa-twitter"></i></span>
+                      </div>
+                      <div class="icon instagram">
+                         <div class="tooltip">
+                            Instagram
+                         </div>
+                         <span><i class="fab fa-instagram"></i></span>
+                      </div>
+                      <div class="icon google">
+                         <div class="tooltip">Google</div>
+                         <span><i class="fab fa-google"></i></span>
+                      </div>
+      
+                   </div>
+                   
+              </div>
+              <p class="footer-company-name">Copyright © 2021 <strong>Divine Public School</strong> All rights reserved</p>
+          </footer>
+      
+              
+            
+            <br>
+            <!-- Footer End -->
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-info p-3 back-to-top float-left"
+              ><i class="fa fa-angle-double-up"></i
+            ></a>
+            <div class="sticky-container">
+              <ul class="sticky">
+                  <li class="twitter">
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px" href="#">
+                      <i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="insta">
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 " style="width: 40px; height: 40px" href="#">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="linkd">
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px" href="#">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                  <li class="facebook">
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px" href="#">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            
+   <!-- pop-up-->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalCenterTitle">Admission open 2023-24</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>To proceed with the registration, please click the button below:</p>
+        <center class="text-center">
+          <button type="button" class="custom-btn" id="registrationButton"
+            data-url="{% url 'registration' %}">Registration Page</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/script1.js' %}"></script>
+    <script>
+      $(document).ready(function () {
+        $("#contactForm").submit(function (event) {
+          event.preventDefault();
+  
+          var form = $(this);
+          var url = form.attr("action");
+          var formData = form.serialize();
+  
+          $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function (response) {
+              // Handle success, e.g., show a success message
+              alert("Your message has been submitted successfully!");
+              form.trigger("reset");
+            },
+            error: function (xhr, errmsg, err) {
+              // Handle error, e.g., show an error message
+              alert("An error occurred. Please try again later.");
+            },
+          });
+        });
+      });
+    </script>
+    
+     <!--Script-->
+  <script type="text/javascript">
+    // Show the popup after a delay when the window loads
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        $("#exampleModalCenter").modal("show");
+      }, 2000);
+    });
+
+    // Hide the popup when the "Close" button in the modal is clicked
+    document.querySelector(".close").addEventListener("click", function () {
+      $("#exampleModalCenter").modal("hide");
+    });
+
+    // When the "Enquiry NOW" button is clicked, open the registration page in a new tab
+    document.getElementById("registrationButton").addEventListener("click", function () {
+      var registrationUrl = this.getAttribute("data-url");
+      window.open(registrationUrl, "_blank");
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+crossorigin="anonymous"></script>
+
+<script src="{% static 'lib/easing/easing.min.js'%}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js'%}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.js' %}"></script>
+
+  </body>
+</html>
